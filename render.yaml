@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: sorovnoma4maktab
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --workers 2 --threads 4 --timeout 120
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: ADMIN_PASSWORD
+        value: admin2026
+      - key: GOOGLE_SHEET_CSV_URL
+        value: https://docs.google.com/spreadsheets/d/1AKRa4wO4hWrTviwyTJbb_jiotX9vDxArNnkyghwfySs/export?format=csv&gid=0
